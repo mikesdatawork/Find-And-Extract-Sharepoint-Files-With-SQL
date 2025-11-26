@@ -1,3 +1,6 @@
+> **Note** — The folder `linguist-samples/` contains tiny real files so GitHub can correctly display all languages used in this repo.  
+> The actual content and examples remain in this README.
+
 ![MIKES DATA WORK GIT REPO](https://raw.githubusercontent.com/mikesdatawork/images/master/git_mikes_data_work_banner_01.png "Mikes Data Work")        
 
 # Find And Extract Sharepoint Files With SQL
@@ -50,7 +53,7 @@ order by
 declare @object_token       int
 declare @destination_path   varchar(255)
 declare @content_binary     varbinary(max)
-set @destination_path   = '\\MyServerName\W$\Sharepoint_Extraction\my_tutorial.pdf'
+set @destination_path   = '\MyServerName\W$\Sharepoint_Extraction\my_tutorial.pdf'
  
 select  @content_binary     = alldocstreams.content from alldocs join alldocstreams on alldocs.id = alldocstreams.id join alllists on alllists.tp_id = alldocs.listid
 where  
@@ -67,7 +70,7 @@ exec sp_oadestroy   @object_token
  
 -- see files at the destination
 declare @check_files    varchar(255)
-set     @check_files    = '\\MyServerName\W$\Sharepoint_Extraction\'
+set     @check_files    = '\MyServerName\W$\Sharepoint_Extraction\'
 exec    master..xp_dirtree @check_files, 1,1
 go
 
@@ -92,4 +95,3 @@ go
 [![LicenseCCSA](https://img.shields.io/badge/License-CreativeCommonsSA-<COLOR>.svg)](https://creativecommons.org/share-your-work/licensing-types-examples/)
 
 ![Mikes Data Work](https://raw.githubusercontent.com/mikesdatawork/images/master/git_mikes_data_work_banner_02.png "Mikes Data Work")
-
